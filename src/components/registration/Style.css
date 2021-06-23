@@ -1,0 +1,73 @@
+.App-block {
+  margin-left: 50px;
+  margin-top: 200px;
+  width: 34vw;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.block-tiile {
+  width: 25vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  text-align: center;
+  padding: 50px 0;
+  margin: 0;
+}
+
+.App-login {
+  display: flex;
+  flex-direction: column;
+  max-width: 26vw;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+input {
+  height: 5vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  padding-left: 15px;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+}
+
+label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.App-btn {
+  display: flex;
+  flex-direction: column;
+  max-width: 26vw;
+  margin: 8px auto;
+  padding: 5px 15px;
+  align-items: flex-end;
+}
+
+.btn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 9px;
+  border: 1px solid #d2d2d2;
+  cursor: pointer;
+}
+
+.btn-auto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  background-color: #fff;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
