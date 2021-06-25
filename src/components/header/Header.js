@@ -1,8 +1,14 @@
 import React from 'react';
+import { useHistory } from "react-router-dom"
 import logomin from '../../logomini.svg';
-// import './Style.css';
 
-function Header(props) {
+const Header = (props) => {
+    let history = useHistory();
+
+    const outputUse = () => {
+        localStorage.clear();
+        history.push("/login")
+    }
 
     return (
         <header className="App-header">
@@ -10,6 +16,7 @@ function Header(props) {
             <p className="header-tiile">
                 {props.children}
             </p>
+            {props.button && <button onClick={() => outputUse()} className="App-btn">Выход</button>}
         </header>
     )
 }
