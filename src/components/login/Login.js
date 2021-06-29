@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
-import logobig from '../../logobig.svg';
+import logobig from '../../source/images/logobig.svg';
 import Header from '../header/Header';
 import axios from 'axios';
-import './Logstyle.css';
+import './Login.scss';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const Login = () => {
     let history = useHistory();
@@ -19,7 +21,7 @@ const Login = () => {
             email: formData.get("login"),
             password: formData.get("password"),
         }).then((result) => {
-            localStorage.setItem("token", JSON.stringify(result.data.token))
+            localStorage.setItem("token", result.data.token)
             history.push("/reception")
         });
     }
@@ -38,14 +40,14 @@ const Login = () => {
                         </p>
                         <div className="App-form">
                             <label>Login:</label>
-                            <input name="login" type="email" value={login} onChange={(e) => setTextLog(e.target.value)} placeholder="Login" />
+                            <TextField name="login" type="email" value={login} onChange={(e) => setTextLog(e.target.value)} placeholder="Login" variant="outlined" />
                         </div>
                         <div className="App-form">
                             <label>Password:</label>
-                            <input name="password" type="text" value={password} onChange={(e) => setTextPass(e.target.value)} placeholder="Password" />
+                            <TextField name="password" type="text" value={password} onChange={(e) => setTextPass(e.target.value)} placeholder="Password" variant="outlined" />
                         </div>
                         <div className="App-btn-form">
-                            <button type="submit" className="btn-form">Войти</button>
+                            <Button variant="outlined" type="submit" className="btn-form">Войти</Button>
                             <Link to="/registration" className="btn-form-auto">Зарегистрироваться </Link>
                         </div>
                     </form>

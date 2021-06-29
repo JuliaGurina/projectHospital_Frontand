@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from "react-router-dom"
-import logobig from '../../logobig.svg';
+import logobig from '../../source/images/logobig.svg';
 import Header from '../header/Header';
 import axios from 'axios';
-import './Regstyle.css';
+import './Registration.scss';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const Registration = () => {
     let history = useHistory();
@@ -23,7 +25,7 @@ const Registration = () => {
                 email: formData.get("login"),
                 password: formData.get("password"),
             }).then((result) => {
-                localStorage.setItem("token", JSON.stringify(result.data.token))
+                localStorage.setItem("token", result.data.token)
                 history.push("/reception")
             });
         }
@@ -43,18 +45,18 @@ const Registration = () => {
                         </p>
                         <div className="App-login">
                             <label>Login:</label>
-                            <input name="login" type="email" value={login} onChange={(e) => setTextLog(e.target.value)} placeholder="Login" />
+                            <TextField className="text-block" name="login" type="email" value={login} onChange={(e) => setTextLog(e.target.value)} placeholder="Login" variant="outlined" />
                         </div>
                         <div className="App-login">
                             <label>Password:</label>
-                            <input name="password" type="text" value={password} onChange={(e) => setTextPass(e.target.value)} placeholder="Password" />
+                            <TextField className="text-block" name="password" type="text" value={password} onChange={(e) => setTextPass(e.target.value)} placeholder="Password" variant="outlined" />
                         </div>
                         <div className="App-login">
                             <label>Repeat password:</label>
-                            <input name="repeatpass" type="text" value={repeatpass} onChange={(e) => setTextRep(e.target.value)} placeholder="Password" />
+                            <TextField className="text-block" name="repeatpass" type="text" value={repeatpass} onChange={(e) => setTextRep(e.target.value)} placeholder="Password" variant="outlined" />
                         </div>
                         <div className="Btn-reg">
-                            <button type="submit" className="btn">Зарегистрироваться</button>
+                            <Button variant="outlined" type="submit" className="btn">Зарегистрироваться</Button>
                             <Link to="/login" className="btn-auto">Авторизоваться</Link>
                         </div>
                     </form>

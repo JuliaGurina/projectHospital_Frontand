@@ -1,0 +1,121 @@
+.form-block {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  background: #fff;
+  border: 2px solid black;
+}
+
+.img-trach {
+  width: 3vh;
+  margin-right: 2rem;
+}
+
+.img-edit {
+  width: 3vh;
+}
+
+.container-table {
+  width: 95vw;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.MuiTableHead-root {
+  background: #c1c1c1;
+}
+
+.cell-table.MuiTableCell-root {
+  text-align: center;
+  border-bottom: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 10px 5px;
+  border-right: 2px solid black;
+  overflow-wrap: anywhere;
+}
+
+.cell-table.MuiTableCell-root:last-child {
+  padding-right: 5px;
+  border-right: none;
+}
+
+.container-table-component.MuiPaper-elevation1 {
+  box-shadow: none;
+}
+
+.container-table-component.MuiPaper-rounded {
+  border-radius: 0;
+}
+
+.table-top {
+  height: 5rem;
+}
+
+.head-table.MuiTableHead-root {
+  border-right: 1px solid #c1c1c1;
+}
+
+.body-table.MuiTableBody-root {
+  border: 1px solid #000;
+}
+
+.cell-table.name-table {
+  border-right: none;
+  width: 18rem;
+}
+
+.cell-table.date-table {
+  border-right: none;
+  width: 12rem;
+}
+
+.cell-table.lament-table {
+  border-right: none;
+  width: 15rem;
+}
+
+.cell-table.img-table {
+  border-right: none;
+  width: 8rem;
+}
+
+.lament-body.MuiTableCell-root {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.text-name.MuiFormControl-root {
+  background: #fff;
+  border-radius: 4px;
+  width: 14.5rem;
+  margin-right: 1.5rem;
+}
+
+.text-doctor.MuiFormControl-root {
+  background: #fff;
+  border-radius: 4px;
+  width: 14.5rem;
+  margin-right: 1.5rem;
+}
+
+.text-date.MuiFormControl-root {
+  background: #fff;
+  border-radius: 4px;
+  width: 14.5rem;
+  margin-right: 1.5rem;
+}
+.btn-form.MuiButton-root {
+  background: #fff;
+  border-radius: 4px;
+  width: 10rem;
+  margin-top: 2.3rem;
+  margin-left: 1.5rem;
+}
+
+label {
+  font-size: 1.5rem;
+}

@@ -8,7 +8,6 @@ body {
   display: flex;
   height: 16vh;
   width: 100vw;
-  position: absolute;
   background: #c5e9ff;
   align-items: center;
   justify-content: center;
@@ -28,8 +27,7 @@ body {
 }
 
 .App-div {
-  background-color: #cee8f8;
-  height: 100vh;
+  margin-top: 2rem;
   width: 100vw;
   align-items: center;
 }
@@ -44,5 +42,5 @@ body {
 
 .App-logobig {
   height: 50vh;
-  margin-top: 16rem;
+  margin-top: 8rem;
 }

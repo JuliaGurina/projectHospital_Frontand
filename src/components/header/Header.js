@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom"
-import logomin from '../../logomini.svg';
+import logomin from '../../source/images/logomini.svg';
 
 const Header = (props) => {
     let history = useHistory();
