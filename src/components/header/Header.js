@@ -1,24 +1,24 @@
 import React from 'react';
-import { useHistory } from "react-router-dom"
-import logomin from '../../source/images/logomini.svg';
+import { useHistory } from "react-router-dom";
+import logoMin from '../../source/images/logoMini.svg';
 
 const Header = (props) => {
-    let history = useHistory();
+	const history = useHistory();
 
-    const outputUse = () => {
-        localStorage.clear();
-        history.push("/login")
-    }
+	const outputUse = () => {
+		localStorage.clear();
+		history.push("/login")
+	}
 
-    return (
-        <header className="App-header">
-            <img src={logomin} className="App-logomin" alt="logo" />
-            <p className="header-tiile">
-                {props.children}
-            </p>
-            {props.button && <button onClick={() => outputUse()} className="App-btn">Выход</button>}
-        </header>
-    )
+	return (
+		<header className="App-header">
+			<img src={logoMin} className="App-logomin" alt="logo" />
+			<p className="header-tiile">
+				{props.children}
+			</p>
+			{props.button && <button onClick={() => outputUse()} className="App-btn">Выход</button>}
+		</header>
+	)
 }
 
 export default Header

@@ -6,23 +6,26 @@ import Form from '../form/Form'
 import './Reception.scss'
 
 const Reception = () => {
-    const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState([]);
+	useEffect(() => {
+		axios.get("http://localhost:5000/allTasks", {
+			headers:
+				{ authorization: localStorage.getItem('token') }
+		})
+			.then((res) => {
+				setTasks(res.data.data);
+			});
+	}, []);
 
-    useEffect(() => {
-        axios.get("http://localhost:5000/allTasks", { headers: { authorization: localStorage.getItem('token') } }).then((res) => {
-            setTasks(res.data.data);
-        });
-    }, []);
-
-    return (
-        <div>
-            <Header button={true}>
-                Прием
-            </Header>
-            <Form setTasks={setTasks} />
-            <TableName tasks={tasks} setTasks={setTasks} />
-        </div >
-    )
+	return (
+		<div>
+			<Header button={true}>
+				Прием
+			</Header>
+			<Form setTasks={setTasks} />
+			<TableName tasks={tasks} setTasks={setTasks} />
+		</div >
+	)
 }
 
 export default Reception
