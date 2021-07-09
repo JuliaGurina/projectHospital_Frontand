@@ -1,0 +1,75 @@
+.App-block {
+  margin-left: 5rem;
+  margin-top: 4rem;
+  width: 34vw;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.block-tiile {
+  width: 30vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+}
+
+.App-login {
+  display: flex;
+  flex-direction: column;
+  max-width: 26vw;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+.text-block {
+  height: 5vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+}
+
+label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.Btn-reg {
+  display: flex;
+  flex-direction: column;
+  max-width: 26vw;
+  margin: 1rem auto;
+  align-items: flex-end;
+}
+
+.btn.MuiButton-root {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #d2d2d2;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.btn-auto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}

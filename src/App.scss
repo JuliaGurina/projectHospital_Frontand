@@ -1,0 +1,46 @@
+body {
+  background: #c5e9ff;
+  padding: 0;
+  margin: 0;
+}
+
+.App-header {
+  display: flex;
+  height: 16vh;
+  width: 100vw;
+  background: #c5e9ff;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.App-logomin {
+  height: 10vh;
+}
+
+.header-tiile {
+  width: 65vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.App-div {
+  margin-top: 2rem;
+  width: 100vw;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  max-width: 70vw;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+}
+
+.App-logobig {
+  height: 50vh;
+  margin-top: 8rem;
+}
