@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import {
 	Table,
 	TableBody,
@@ -9,13 +8,35 @@ import {
 	TableRow,
 	Paper
 } from '@material-ui/core';
+import ModalDelete from "../modalDelete/ModalDelete";
+import ModalEdit from "../modalEdit/ModalEdit"
 import trash from '../../source/images/trash.svg';
 import edit from '../../source/images/edit.svg';
 import './TableName.scss';
 
 const TableName = ({ tasks, setTasks }) => {
-	const [indexEdit, setIndex] = useState(null);
-	const [textNew, setEdit] = useState("");
+	const [tempTask, setTask] = useState("");
+	const [openDel, setOpenDelete] = useState(false);
+	const [openEdit, setOpenEdit] = useState(false);
+
+	const handleOpenDelete = (task) => {
+		setTask(task);
+		setOpenDelete(true);
+	};
+
+	const handleCloseDelete = () => {
+		setOpenDelete(false);
+	};
+
+	const handleOpenEdit = (task) => {
+		setTask(task);
+		setOpenEdit(true);
+	};
+
+	const handleCloseEdit = () => {
+		setOpenEdit(false);
+	};
+
 	const tableName = [
 		{
 			name: "Имя",
@@ -36,20 +57,7 @@ const TableName = ({ tasks, setTasks }) => {
 		{
 			name: "",
 			className: "img-table"
-		}]
-
-	const deleteTask = async (index) => {
-		await axios
-			.delete(`http://localhost:5000/deleteTask?_id=${tasks[index]._id}`)
-			.then((res) => {
-				setTasks(res.data.data);
-			});
-	}
-
-	const editTask = (index) => {
-		setIndex(index);
-		setEdit(tasks[index].text);
-	};
+		}];
 
 	return (
 		<div className="form-block">
@@ -73,12 +81,12 @@ const TableName = ({ tasks, setTasks }) => {
 									<TableCell align="right" className="cell-table">
 										<img
 											src={trash}
-											onClick={() => deleteTask(index)}
+											onClick={() => handleOpenDelete(task)}
 											className="img-trach"
 											alt="delete" />
 										<img
 											src={edit}
-											onClick={() => editTask(index)}
+											onClick={() => handleOpenEdit(task)}
 											className="img-edit"
 											alt="edit" />
 									</TableCell>
@@ -87,6 +95,18 @@ const TableName = ({ tasks, setTasks }) => {
 						</TableBody>
 					</Table>
 				</TableContainer>
+				{setOpenDelete && <ModalDelete
+					open={openDel}
+					onClose={handleCloseDelete}
+					setTasks={setTasks}
+					task={tempTask}
+				/>}
+				{openEdit && <ModalEdit
+					open={openEdit}
+					onClose={handleCloseEdit}
+					setTasks={setTasks}
+					task={tempTask}
+				/>}
 			</div>
 		</div>
 	)

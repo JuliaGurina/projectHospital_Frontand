@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import 'date-fns';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+	MuiPickersUtilsProvider,
+	KeyboardDatePicker
+} from '@material-ui/pickers';
+import moment from 'moment';
 import axios from 'axios';
 import {
 	TextField,
@@ -8,14 +15,12 @@ import {
 import './Form.scss';
 
 const Form = ({ setTasks }) => {
+	const d = moment().format('L');
 	const [name, setTextName] = useState("");
 	const [doctor, setTextDoctor] = useState("");
-	const [date, setTextDate] = useState("");
+	const [date, setTextDate] = useState(d);
 	const [lament, setTextLament] = useState("");
 	const nameDoctors = [
-		{
-			name: ""
-		},
 		{
 			name: "Пупкин Пупок Пупкович"
 		},
@@ -27,30 +32,36 @@ const Form = ({ setTasks }) => {
 		}]
 
 	const addNewTask = async () => {
-		await axios
-			.post("http://localhost:5000/createTask", {
-				name: name,
-				doctor: doctor,
-				date: date,
-				lament: lament
-			}, {
-				headers:
-					{ authorization: localStorage.getItem('token') }
-			})
-			.then((res) => {
-				setTasks(res.data.data);
-				setTextName("");
-				setTextDoctor("");
-				setTextDate("");
-				setTextLament("");
-			});
+		if (name.trim() && date && lament.trim()) {
+			await axios
+				.post("http://localhost:5000/createTask", {
+					name: name,
+					doctor: doctor,
+					date: moment(date).format('DD.MM.YYYY'),
+					lament: lament
+				}, {
+					headers:
+						{ authorization: localStorage.getItem('token') }
+				})
+				.then((res) => {
+					setTasks(res.data.data);
+					setTextName("");
+					setTextDoctor("");
+					setTextDate(d);
+					setTextLament("");
+				});
+		} else {
+			alert("Заполните все поля");
+		}
 	};
 
 	return (
 		<div className="form">
 			<div className="App-dom">
 				<label>Имя:</label>
-				<TextField value={name}
+				<TextField
+					placeholder="Ф.И.О."
+					value={name}
 					onChange={(e) => setTextName(e.target.value)}
 					type="text"
 					id="outlined-basic"
@@ -59,7 +70,8 @@ const Form = ({ setTasks }) => {
 			</div>
 			<div className="App-dom">
 				<label>Врач:</label>
-				<Select variant="outlined"
+				<Select
+					variant="outlined"
 					className="text-doctor"
 					native
 					value={doctor}
@@ -73,12 +85,20 @@ const Form = ({ setTasks }) => {
 			<div className="App-dom">
 				<label>Дата:</label>
 				<div>
-					<TextField className="text-date"
-						onChange={(e) => setTextDate(e.target.value)}
-						id="date"
-						type="date"
-						variant="outlined"
-					/>
+					<MuiPickersUtilsProvider utils={DateFnsUtils}>
+						<KeyboardDatePicker
+							className="text-date"
+							disableToolbar
+							variant="outlined"
+							format="dd.MM.yyyy"
+							margin="normal"
+							id="date-picker-inline"
+							value={date}
+							onChange={(d) => setTextDate(d)}
+							KeyboardButtonProps={{
+								'aria-label': 'change date',
+							}} />
+					</MuiPickersUtilsProvider>
 				</div>
 			</div>
 			<div className="App-dom">
@@ -91,7 +111,8 @@ const Form = ({ setTasks }) => {
 					variant="outlined" />
 			</div>
 			<div className="App-dom">
-				<Button onClick={() => addNewTask()}
+				<Button
+					onClick={() => addNewTask()}
 					variant="outlined"
 					className="btn-form">
 					Добавить

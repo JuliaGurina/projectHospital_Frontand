@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
+import axios from 'axios';
+import { Button, TextField, Snackbar } from '@material-ui/core';
 import logoBig from '../../source/images/logoBig.svg';
 import Header from '../header/Header';
-import axios from 'axios';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import './Login.scss';
 
 const Login = () => {
 	const history = useHistory();
-
 	const [login, setTextLog] = useState("");
 	const [password, setTextPass] = useState("");
+	const [open, setOpen] = React.useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -23,7 +22,12 @@ const Login = () => {
 		}).then((result) => {
 			localStorage.setItem("token", result.data.token);
 			history.push("/reception");
-		});
+		})
+			.catch((e) => {
+				setOpen(true)
+			})
+		setTextLog('');
+		setTextPass('');
 	}
 
 	return (
@@ -62,7 +66,8 @@ const Login = () => {
 							<Button
 								variant="outlined"
 								type="submit"
-								className="btn-form">
+								className="btn-form"
+							>
 								Войти
 							</Button>
 							<Link
@@ -74,6 +79,23 @@ const Login = () => {
 					</form>
 				</div>
 			</div>
+			<Snackbar
+				anchorOrigin={{
+					vertical: 'top',
+					horizontal: 'center',
+				}}
+				open={open}
+				autoHideDuration={6000}
+				onClose={() => setOpen(false)}
+				message="Не правильно ввели пароль или логин"
+				action={
+					<React.Fragment>
+						<Button color="secondary" size="small" onClick={() => setOpen(false)}>
+							OK
+						</Button>
+					</React.Fragment>
+				}
+			/>
 		</div>
 	)
 }

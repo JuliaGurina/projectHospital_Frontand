@@ -1,0 +1,44 @@
+.modal-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .MuiBackdrop-root {
+    background-color: rgba(250, 250, 250, 0.7);
+  }
+}
+
+.fade-style {
+  width: 40vw;
+  height: 30vh;
+  margin: 0 auto;
+  padding: 0rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  .title-tible {
+    height: 7vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  p {
+    padding-left: 2rem;
+    font-size: 1.5rem;
+  }
+  .btn-table {
+    height: 7vh;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 6rem;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: 3rem;
+  }
+  button {
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+    width: 10rem;
+    height: 3rem;
+  }
+}

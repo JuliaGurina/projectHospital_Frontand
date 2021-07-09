@@ -12,7 +12,11 @@ const App = () => {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
-        <Route path='/reception' component={Reception} />
+        <Route path='/reception'
+          render={() =>
+            localStorage.getItem("token")
+              ? (<Reception />)
+              : (<Redirect to='/login' />)} />
         <Redirect from="/" to="/login" />
       </Switch>
     </div>

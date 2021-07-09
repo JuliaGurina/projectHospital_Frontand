@@ -1,0 +1,68 @@
+.fade-style-edit {
+  width: 50vw;
+  height: 72vh;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  .title-tible {
+    height: 7vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .App-dom-edit {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    justify-content: center;
+    .label {
+      padding-bottom: 1rem;
+    }
+    .text-name {
+      width: 45vw;
+    }
+  }
+  .btn-table {
+    height: 7vh;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 11rem;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: 3rem;
+  }
+  button {
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+    width: 10rem;
+    height: 3rem;
+  }
+}
+
+.text-date-edit.MuiFormControl-root {
+  background: #fff;
+  border-radius: 4px;
+  padding: 1rem 1rem;
+  height: 2.1vh;
+  margin: 0;
+  border: 1px solid #d2d2d2;
+  width: 43vw;
+  margin-right: 1.5rem;
+}
+
+.text-date-edit .MuiInput-underline:before {
+  border-bottom: none;
+}
+
+.text-date-edit .MuiInputBase-input {
+  padding: 0;
+}
+
+.text-date-edit .MuiSvgIcon-root {
+  padding-bottom: 1rem;
+  padding-left: 9rem;
+}
